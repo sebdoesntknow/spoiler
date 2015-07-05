@@ -1,0 +1,8 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">
+
+{% if title and spoiler %}
+<h1>{{ spoiler }}</h1>
+<h2>{{ title }}</h2>
+{% endif %}
