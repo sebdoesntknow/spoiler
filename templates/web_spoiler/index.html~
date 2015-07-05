@@ -1,4 +1,0 @@
-{% if title and spoiler %}
-<p>Spoiler: {{ spoiler }}</p>
-<p>Title: {{ title }}</p>
-{% endif %}
