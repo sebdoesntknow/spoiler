@@ -1,8 +1,6 @@
 from selenium import webdriver
 import unittest
 
-browser = webdriver.Firefox()
-
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
