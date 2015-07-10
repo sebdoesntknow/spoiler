@@ -11,3 +11,4 @@ def index(request):
     
     return render(request, 'web_spoiler/index.html', {'title': title.title_text, 'spoiler': spoiler})
 
+
