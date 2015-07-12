@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.utils import timezone
+from django.template.loader import render_t_string
 
 from .views import index
 from .models import Title, Spoiler
@@ -25,4 +26,4 @@ class HomePageTest(TestCase):
         response = index(request)
         self.assertTrue(response.content.startswith(b'<html>'))
         self.assertIn(b'<title>Spoiler</title>', response.content)
-        self.assertTrue(response.content.endswith(b'</html>'))
+        self.assertTrue(response.content.strip().endswith(b'</html>'))
