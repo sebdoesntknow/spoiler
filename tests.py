@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import resolve
 from django.http import HttpRequest
 from django.utils import timezone
-from django.template.loader import render_t_string
+from django.template.loader import render_to_string
 
 from .views import index
 from .models import Title, Spoiler
@@ -24,6 +24,5 @@ class HomePageTest(TestCase):
         create_title("A Movie", "A movie Spoiler")
         request = HttpRequest()
         response = index(request)
-        self.assertTrue(response.content.startswith(b'<html>'))
-        self.assertIn(b'<title>Spoiler</title>', response.content)
-        self.assertTrue(response.content.strip().endswith(b'</html>'))
+        expected_html = render_to_string('web_spoiler/index.html')
+        self.assertEqual(response.content.decode(), expected_html)
