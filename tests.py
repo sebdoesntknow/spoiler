@@ -24,5 +24,8 @@ class HomePageTest(TestCase):
         create_title("A Movie", "A movie Spoiler")
         request = HttpRequest()
         response = index(request)
-        expected_html = render_to_string('web_spoiler/index.html')
+        expected_html = render_to_string('web_spoiler/index.html',
+                                         {'spoiler': Spoiler.objects.first(),
+                                          'title': Title.objects.first(),
+                                         })
         self.assertEqual(response.content.decode(), expected_html)
