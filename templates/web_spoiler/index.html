@@ -1,14 +1,14 @@
-{% load staticfiles %}
 <html>
-  <head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">  <head>
     <title>Spoiler</title>
   </head>
-
-  <link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">
   <body>
     {% if title and spoiler %}
     <h1>{{ spoiler }}</h1>
     <h2>{{ title }}</h2>
     {% endif %}
+    <br />
+    <input id="id_new_item">
   </body>
 </html>
