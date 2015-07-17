@@ -9,7 +9,7 @@ from .models import Title, Spoiler
 
 # Must create both title and some spoiler because
 # template won't show anything if both objects aren't picked up.
-def create_title(title="Movie", spoiler="Nasty spoiler", time=timezone.now()):
+def create_title(title="Movie", spoiler="Movie spoiler", time=timezone.now()):
     new_title = Title(title_text=title, sub_date=time)
     new_title.save()
     return new_title.spoiler_set.create(spoiler_text=spoiler, pub_date=time)
@@ -29,3 +29,6 @@ class HomePageTest(TestCase):
                                           'title': Title.objects.first(),
                                          })
         self.assertEqual(response.content.decode(), expected_html)
+
+    def test_title_without_spoiler_text(self):
+        pass

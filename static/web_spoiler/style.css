@@ -1,5 +1,5 @@
 body {
-    background-color: #16c72b
+    background-color: #16c72b;
 }
 
 h1 {
@@ -7,5 +7,12 @@ h1 {
 }
 
 h2 {
-    text-align: center
+    text-align: center;
+}
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-color: black;
 }

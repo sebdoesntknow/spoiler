@@ -1,14 +1,19 @@
+{% load staticfiles %}
 <html>
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">  <head>
+  <link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">
+  <head>
     <title>Spoiler</title>
   </head>
   <body>
     {% if title and spoiler %}
+    <br /><br /><br /><br />
     <h1>{{ spoiler }}</h1>
     <h2>{{ title }}</h2>
     {% endif %}
-    <br />
-    <input id="id_new_item">
+    <table border="1">
+      <tr>
+	<td>Dynamic_tinyurl_here</td>
+      </tr>
+    </table>
   </body>
 </html>

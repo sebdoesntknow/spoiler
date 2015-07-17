@@ -13,33 +13,31 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_retrieve_main_page(self):
         # Get the spoilers homepage
         self.browser.get('http://localhost:8000/spoiler/')
-
-    def test_spoiler_in_the_page_title(self):
         # Page title and header mention a spoiler
         self.assertIn('Spoiler', self.browser.title)
         # header_text = self.browser.find_element_by_tag_name('h1').text
         # self.assertIn('Spoiler', header_text)
         
         # Invite user to add a new title and spoiler to the database.
-        title_inputbox = self.browser.find_element_by_id('id_new_title')
-        spoiler_inputbox = self.browser.find_element_by_id('id_new_spoiler')
-        self.assertEqual(
-            title_inputbox.get_attribute('title_placeholder'),
-            'Enter a new title'
-        )
-        self.assertEqual(
-            spoiler_inputbox.get_attribute('spoiler_placeholder'),
-            'Enter the title spoiler'
-        )
+#        title_inputbox = self.browser.find_element_by_id('id_new_title')
+#        spoiler_inputbox = self.browser.find_element_by_id('id_new_spoiler')
+#        self.assertEqual(
+#            title_inputbox.get_attribute('title_placeholder'),
+#            'Enter a new title'
+#        )
+#        self.assertEqual(
+#            spoiler_inputbox.get_attribute('spoiler_placeholder'),
+#            'Enter the title spoiler'
+#        )
 
         # The user adds another spoiler for Game of Thrones
         # in the text box displayed
-        title_inputbox.send_keys('Game of Thrones')
-        spoiler_inputbox.send_keys('The King Joeffrey dies by poison')
+#        title_inputbox.send_keys('Game of Thrones')
+#        spoiler_inputbox.send_keys('The King Joeffrey dies by poison')
 
         # When the user hits enter the page is refreshed
         # and the spoiler that was just added is displayed
-        title_inputbox.send_keys(Keys.ENTER)
+#        title_inputbox.send_keys(Keys.ENTER)
 
         #table = self.browser.find_element_by_id('id_list_table')
         #rows = table.find_elements_by_tag_name('tr')
