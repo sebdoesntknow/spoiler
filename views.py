@@ -14,9 +14,9 @@ def index(request):
                   })
 
 
-def spoiler_detail(request, title_id, spoiler_id):
-    title_request = Title.objects.get(pk=title_id)
+def spoiler_detail(request, spoiler_id):
+    requested_spoiler = Spoiler.objects.get(pk=spoiler_id)
     return render(request, 'web_spoiler/detail.html',
-                  {'title': title_request.pk,
-                   'spoiler': title_request.spoiler_set.get(spoiler_id),
+                  {'title': requested_spoiler.title.title_text,
+                   'spoiler': requested_spoiler.spoiler_text,
                   })
