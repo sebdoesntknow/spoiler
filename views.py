@@ -15,7 +15,7 @@ def index(request):
 
 
 def spoiler_detail(request, spoiler_id):
-    requested_spoiler = Spoiler.objects.get(pk=spoiler_id)
+    requested_spoiler = get_object_or_404(Spoiler, pk=spoiler_id)
     return render(request, 'web_spoiler/detail.html',
                   {'title': requested_spoiler.title.title_text,
                    'spoiler': requested_spoiler.spoiler_text,
