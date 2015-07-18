@@ -5,7 +5,7 @@ from .models import Title, Spoiler
 
 def index(request):
     spoiler = Spoiler.objects.all()[randint(0, Spoiler.objects.count() -1)]
-    spoiler_title = Title.objects.get(pk=spoiler.title_id)
+    spoiler_title = get_object_or_404(Title, pk=spoiler.title_id)
     return render(request, 'web_spoiler/index.html',
                   {'title': spoiler_title.title_text,
                    'spoiler': spoiler.spoiler_text,
