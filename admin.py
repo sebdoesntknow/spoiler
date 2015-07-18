@@ -1,3 +1,16 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Spoiler, Title
+
+class SpoilerInline(admin.TabularInline):
+    model = Spoiler
+    extra = 1
+
+class TitleAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,                {'fields': ['title_text']}),
+        ('Date information',  {'fields': ['sub_date'], 'classes': ['collapse']}),
+    ]
+    inlines = [SpoilerInline]
+
+admin.site.register(Title, TitleAdmin)
