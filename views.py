@@ -4,13 +4,12 @@ from django.shortcuts import render, get_object_or_404
 from .models import Title, Spoiler
 
 def index(request):
-    title = get_object_or_404(Title, pk=randint(1, Title.objects.count()))
-    spoiler_choices = [sp.id for sp in title.spoiler_set.all()]
-    spoiler = title.spoiler_set.get(pk=spoiler_choices[randint(0, len(spoiler_choices) -1)])
+    spoiler = Spoiler.objects.all()[randint(0, Spoiler.objects.count() -1)]
+    spoiler_title = Title.objects.get(pk=spoiler.title_id)
     return render(request, 'web_spoiler/index.html',
-                  {'title': title.title_text,
-                   'spoiler': spoiler,
-                   'dynamic_url': "Generate tinyurl link here",
+                  {'title': spoiler_title.title_text,
+                   'spoiler': spoiler.spoiler_text,
+                   'dynamic_url': spoiler.tinyurl,
                   })
 
 

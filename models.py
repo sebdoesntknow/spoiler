@@ -17,7 +17,7 @@ class Spoiler(models.Model):
     votes = models.IntegerField(default=0)
     tinyurl = models.URLField(max_length=50, default='http://tinyurl.com/')
 
-    # USe the tinyurl generator to cache spoilers tinyurls
+    # Use the tinyurl generator to cache spoilers tinyurls
     # Can generate url using spoiler.title_id and spoiler.pk
     def generate_spoiler_tinyurl(self, url='http://spoiler.vergafea.org'):
         tinyurl_for_cache = tinyurl_gen(url)
