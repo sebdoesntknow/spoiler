@@ -15,7 +15,7 @@ class Spoiler(models.Model):
     spoiler_text = models.TextField()
     pub_date =  models.DateTimeField('Date Added')
     votes = models.IntegerField(default=0)
-    tinyurl = models.URLField(max_length=50, blank=True)
+    tinyurl = models.URLField(max_length=50, default='None yet', blank=True)
 
     # Use the tinyurl generator to cache spoilers tinyurls
     # Can generate url using spoiler.title_id and spoiler.pk
