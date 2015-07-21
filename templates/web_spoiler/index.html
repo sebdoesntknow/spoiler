@@ -1,19 +1,14 @@
-{% load staticfiles %}
-<html>
-  <link rel="stylesheet" type="text/css" href="{% static 'web_spoiler/style.css' %}">
-  <head>
-    <title>Spoiler</title>
-  </head>
-  <body>
-    {% if title and spoiler %}
-    <br /><br /><br /><br />
-    <h1>{{ spoiler }}</h1>
-    <h2>{{ title }}</h2>
-    {% endif %}
-    <table border="1">
-      <tr>
-	<td>{{ dynamic_url }}</td>
-      </tr>
-    </table>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+{% if title and spoiler %}
+<br /><br /><br /><br />
+<h1>{{ spoiler }}</h1>
+<h2>{{ title }}</h2>
+{% endif %}
+<table border="1">
+  <tr>
+    <td>{{ dynamic_url }}</td>
+  </tr>
+</table>
+{% endblock %}
