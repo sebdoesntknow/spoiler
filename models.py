@@ -25,8 +25,5 @@ class Spoiler(models.Model):
         tinyurl_for_cache = tinyurl_gen(url)
         return tinyurl_for_cache
 
-    def get_random_spoiler_object(self):
-        return Spoiler.objects.order_by('?').first()
-
     def __str__(self):
         return self.spoiler_text
