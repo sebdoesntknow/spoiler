@@ -15,6 +15,7 @@ class Spoiler(models.Model):
     spoiler_text = models.TextField()
     pub_date =  models.DateTimeField('Date Added')
     votes = models.IntegerField(default=0)
+    # on tinyurl attr we can use the tinyurl_gen in it maybe?
     tinyurl = models.URLField(max_length=50, default='None yet', blank=True)
 
     # Use the tinyurl generator to cache spoilers tinyurls
@@ -23,6 +24,9 @@ class Spoiler(models.Model):
         url = 'http://spoiler.mrcricket.me/{}'.format(spoiler_id)
         tinyurl_for_cache = tinyurl_gen(url)
         return tinyurl_for_cache
+
+    def get_random_spoiler_object(self):
+        return Spoiler.objects.order_by('?').first()
 
     def __str__(self):
         return self.spoiler_text

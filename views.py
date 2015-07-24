@@ -4,6 +4,8 @@ from web_spoiler.spoiler_tools.tinyurl_tools import tinyurl_field_checker
 
 from .models import Title, Spoiler
 
+# Change spoiler object so it will retrieve a single record from the db
+# instead retrieving the entire table to pick one
 def index(request):
     spoiler = Spoiler.objects.all()[randint(0, Spoiler.objects.count() -1)]
     spoiler_title = get_object_or_404(Title, pk=spoiler.title_id)
