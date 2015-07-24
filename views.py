@@ -1,11 +1,8 @@
-from random import randint
 from django.shortcuts import render, get_object_or_404
 from web_spoiler.spoiler_tools.tinyurl_tools import tinyurl_field_checker
 
 from .models import Title, Spoiler
 
-# Change spoiler object so it will retrieve a single record from the db
-# instead retrieving the entire table to pick one
 def index(request):
     spoiler = Spoiler.objects.order_by('?').first()
     spoiler_title = get_object_or_404(Title, pk=spoiler.title_id)
