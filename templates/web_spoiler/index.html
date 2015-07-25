@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block sidebar %}
+<a href="{% url 'web_spoiler:titles' %}">Titles</a>
+{% endblock %}
+
 {% block content %}
 {% if title and spoiler %}
 <br /><br /><br /><br />

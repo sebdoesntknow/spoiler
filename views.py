@@ -27,4 +27,7 @@ def titles_menu(request):
                   {'titles_list': titles_list})
 
 def single_title(request, title_id):
-    pass
+    title = get_object_or_404(Title, pk=title_id)
+    title_spoiler = title.spoiler_set.order_by('?').first()
+    return render(request, 'web_spoiler/title_spoiler.html',
+                  {'title_spoiler': title_spoiler})
