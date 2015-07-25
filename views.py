@@ -20,3 +20,11 @@ def spoiler_detail(request, spoiler_id):
                   {'title': requested_spoiler.title.title_text,
                    'spoiler': requested_spoiler.spoiler_text,
                   })
+
+def titles_menu(request):
+    titles_list = Title.objects.order_by('title_text')
+    return render(request, 'web_spoiler/titles_menu.html',
+                  {'titles_list': titles_list})
+
+def single_title(request, title_id):
+    pass
