@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<a href="{% url 'web_spoiler:index' %}">Main</a>
+{% endblock %}
+
+{% block content %}
+{% if titles_list %}
+<ul>
+{% for title in titles_list  %}
+<li><a href="{% url 'web_spoiler:title' title.id %}">{{ title }}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+<strong>No titles list yet!</strong>
+{% endif %}
+{% endblock %}
