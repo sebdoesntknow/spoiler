@@ -29,5 +29,7 @@ def titles_menu(request):
 def single_title(request, title_id):
     title = get_object_or_404(Title, pk=title_id)
     title_spoiler = title.spoiler_set.order_by('?').first()
+    tinyurl_field_checker(title_spoiler.pk)
     return render(request, 'web_spoiler/title_spoiler.html',
-                  {'title_spoiler': title_spoiler})
+                  {'title_spoiler': title_spoiler,
+                   'tinyurl': title_spoiler.tinyurl})
