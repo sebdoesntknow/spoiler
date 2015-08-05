@@ -4,7 +4,7 @@ from .models import Spoiler, Title
 
 class SpoilerInline(admin.TabularInline):
     model = Spoiler
-    extra = 1
+    extra = 0
 
 class TitleAdmin(admin.ModelAdmin):
     fieldsets = [
