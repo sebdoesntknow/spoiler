@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block sidebar %}
-<a href="{% url 'web_spoiler:index' %}">Main</a> >
-<a href="{% url 'web_spoiler:titles' %}">Titles</a> >
+<a href="{% url 'web_spoiler:index' %}">Main</a> -
+<a href="{% url 'web_spoiler:titles' %}">Titles</a> -
 {{ title_spoiler.title.title_text }}
 {% endblock %}
 
