@@ -8,13 +8,10 @@ def index(request):
     # Workaround to avoid pulling the entire Spoiler table
     # and running a RAND query which could cause a huge
     # drop in performance.
-    spoiler = ''
+    spoiler = Spoiler.random_spoiler()
     min_spoiler_id = Spoiler.objects.earliest('id').pk
     max_spoiler_id = Spoiler.objects.latest('id').pk
-    
-    while spoiler == '':
-        spoiler = Spoiler.objects.get(pk=randint(min_spoiler_id, max_spoiler_id))
-    
+
     spoiler_title = get_object_or_404(Title, pk=spoiler.title_id)
     # Update tinyurl value for those that don't match the url
     tinyurl_field_checker(spoiler.pk)
