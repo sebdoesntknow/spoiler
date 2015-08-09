@@ -1,18 +1,25 @@
 {% extends "base.html" %}
 
 {% block sidebar %}
-<a href="{% url 'web_spoiler:titles' %}">Titles</a>
+<div class="titles-menu">
+  <a href="{% url 'web_spoiler:titles' %}">Titles</a>
+</div>
 {% endblock %}
 
 {% block content %}
 {% if title and spoiler %}
-<br /><br /><br /><br />
-<h1>{{ spoiler }}</h1>
-<h2>{{ title }}</h2>
+<div class="main-spoiler">
+  <section id="spoiler-text">
+    <h1>{{ spoiler }}</h1>
+  </section>
+  <h2>{{ title }}</h2>
+</div>
+<div class="spoiler-link">
+  <table border="1">
+    <tr>
+      <td>{{ dynamic_url }}</td>
+    </tr>
+  </table>
+</div>
 {% endif %}
-<table border="1">
-  <tr>
-    <td>{{ dynamic_url }}</td>
-  </tr>
-</table>
 {% endblock %}

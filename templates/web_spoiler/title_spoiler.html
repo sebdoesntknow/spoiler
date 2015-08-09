@@ -8,13 +8,16 @@
 
 {% block content %}
 {% if title_spoiler %}
-<br /><br /><br /><br />
-<h1>{{ title_spoiler.spoiler_text }}</h1>
-<h2>{{ title_spoiler.title.title_text }}</h2>
+<div class="main-spoiler">
+  <h1>{{ title_spoiler.spoiler_text }}</h1>
+  <h2>{{ title_spoiler.title.title_text }}</h2>
+</div>
+<div class="spoiler-link">
+  <table border="1">
+    <tr>
+      <td>{{ tinyurl }}</td>
+    </tr>
+  </table>
+</div>
 {% endif %}
-<table border="1">
-  <tr>
-    <td>{{ tinyurl }}</td>
-  </tr>
-</table>
 {% endblock %}

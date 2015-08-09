@@ -1,17 +1,34 @@
-body {
+html {
     background-color: #16c72b;
 }
 
-h1 {
+body {
+    background-color: lightblue;
+    width: 50em;
+    margin: 1em auto;
+    padding: 3em 5em;
+    line-height: 1.4;
+    font-family: sans-serif;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.7);
+}
+
+.titles-menu a {
+    font-family: sans-serif;
+}
+
+.main-spoiler h1 {
     text-align: center;
 }
 
-h2 {
+#spoiler-text {
+    font-family: sans-serif;
+}
+
+.main-spoiler h2 {
     text-align: center;
 }
 
-
-table {
+.spoiler-link table {
     margin-left: auto;
     margin-right: auto;
     border-color: black;
