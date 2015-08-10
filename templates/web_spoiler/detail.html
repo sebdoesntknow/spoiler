@@ -6,7 +6,9 @@
 
 {% block content %}
 {% if title and spoiler %}
-<h1>{{ spoiler }}</h1>
-<h2>{{ title }}</h2>
+<div class="main-spoiler">
+  <h1>{{ spoiler }}</h1>
+  <h2>{{ title }}</h2>
+</div>
 {% endif %}
 {% endblock %}
