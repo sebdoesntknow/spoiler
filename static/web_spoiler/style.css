@@ -35,3 +35,7 @@ body {
     margin-right: auto;
     border-color: black;
 }
+
+.title-search {
+    text-align: right;
+}

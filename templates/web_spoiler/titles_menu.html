@@ -5,6 +5,12 @@
 {% endblock %}
 
 {% block content %}
+<div class="title-search">
+  <form action="{% url 'web_spoiler:title_search_result' %}" method="GET">
+    <input type="text" name="pattern" placeholder="Search Title...">
+    <input type="submit" value="Go">
+  </form>
+</div>
 {% if titles_list %}
 <ul>
 {% for title in titles_list  %}
