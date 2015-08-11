@@ -36,8 +36,9 @@ def titles_menu(request):
 def title_search_result(request):
     pattern = request.GET['pattern']
     results_list = Title.objects.filter(title_text__contains=pattern)
+    print(results_list)
     return render(request, 'web_spoiler/title_search_result.html',
-                  {results_list: 'results_list'})
+                  {'results_list': results_list})
 
 def single_title(request, title_id):
     title = get_object_or_404(Title, pk=title_id)
