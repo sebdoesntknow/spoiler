@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<a href="{% url 'web_spoiler:index' %}">Main</a>
+{% endblock %}
+
+{% block content %}
+<div class="title-search">
+  <form action="{% url 'web_spoiler:title_search_result' %}" method="GET">
+    <input type="text" name="pattern" placeholder="Search Title...">
+    <input type="submit" value="Go!">
+  </form>
+</div>
+{% if results_list %}
+<ul>
+  {% for title in results_list %}
+  <li><a href="{% url 'web_spoiler:title' title.id %}">{{ title.title_text }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p><strong>No results found!</strong></p>
+{% endif %}
+{% endblock %}
