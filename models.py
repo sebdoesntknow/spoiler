@@ -38,9 +38,8 @@ class Spoiler(models.Model):
     @staticmethod
     def random_spoiler():
         from random import randint
-        min = Spoiler.objects.earliest('id').pk
-        max = Spoiler.objects.latest('id').pk
-        return Spoiler.objects.filter(id__gte=randint(min, max))[0]
+        sp_count = Spoiler.objects.count()
+        return Spoiler.objects.filter(pk__gte=1).all()[randint(0, sp_count -1)]
 
     # Use the tinyurl generator to cache spoilers tinyurls
     # Can generate url using spoiler.title_id and spoiler.pk
