@@ -14,7 +14,7 @@ def index(request):
 
     spoiler_title = get_object_or_404(Title, pk=spoiler.title_id)
     # Update tinyurl value for those that don't match the url
-    #tinyurl_field_checker(spoiler.pk)
+    tinyurl_field_checker(spoiler.pk)
     return render(request, 'web_spoiler/index.html',
                   {'title': spoiler_title.title_text,
                    'spoiler': spoiler.spoiler_text,
